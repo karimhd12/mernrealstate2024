@@ -7,6 +7,7 @@ export default function SignUp() {
   const [error, setError] = useState(null);
   const [loading,setLoading] = useState(false);
   const navigate = useNavigate();
+  const url = 'https://mernrealstate2024api.vercel.app'
 
   const handleChange = (e) =>{
     // get the data from the form
@@ -22,7 +23,7 @@ export default function SignUp() {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await fetch('https://mernrealstate2024api.vercel.app/api/auth/signup',
+      const res = await fetch({url}+'/api/auth/signup',
         {
           method:'post',
           headers:{

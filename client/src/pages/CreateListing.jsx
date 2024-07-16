@@ -123,6 +123,7 @@ export default function CreateListing() {
       });
     }
   };
+  const url = 'https://mernrealstate2024api.vercel.app'
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -133,7 +134,7 @@ export default function CreateListing() {
         return setError('Discount price must be lower than regular price');
       setLoading(true);
       setError(false);
-      const res = await fetch('https://mernrealstate2024api.vercel.app/api/listing/create', {
+      const res = await fetch({url}+'/api/listing/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

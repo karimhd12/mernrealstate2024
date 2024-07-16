@@ -72,12 +72,13 @@ export default function Profile() {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
+  const url = 'https://mernrealstate2024api.vercel.app'
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       dispatch(updateUserStart());
-      const res = await fetch(`https://mernrealstate2024api.vercel.app/api/user/update/${currentUser._id}`, {
+      const res = await fetch(`${url}/api/user/update/${currentUser._id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

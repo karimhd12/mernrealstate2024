@@ -7,13 +7,15 @@ import {useNavigate} from 'react-router-dom';
 export default function OAuth() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const url = 'https://mernrealstate2024api.vercel.app'
+
     const handleGoogleClick = async ( ) =>{
         try {
             const provider = new GoogleAuthProvider()
             const auth = getAuth(app)
             const result = await signInWithPopup(auth,provider)
             
-            const res = await fetch('/api/auth/google', {
+            const res = await fetch( {url}+'/api/auth/google', {
                 method:'POST',
                 headers:{
                     'content-Type':'application/json'

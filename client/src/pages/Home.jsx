@@ -14,6 +14,8 @@ export default function Home() {
   const [rentListings, setRentListings] = useState([]);
   SwiperCore.use([Navigation]);
   console.log(offerListings);
+  const url = 'https://mernrealstate2024api.vercel.app'
+
   useEffect(() => {
     const fetchOfferListings = async () => {
       try {
@@ -25,9 +27,10 @@ export default function Home() {
         console.log(error);
       }
     };
+    
     const fetchRentListings = async () => {
       try {
-        const res = await fetch('/api/listing/get?type=rent&limit=4');
+        const res = await fetch({url}+'/api/listing/get?type=rent&limit=4');
         const data = await res.json();
         setRentListings(data);
         fetchSaleListings();

@@ -10,6 +10,7 @@ export default function Signin() {
   const {loading,error} = useSelector((state)=> state.user)
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const url = 'https://mernrealstate2024api.vercel.app'
 
   const handleChange = (e) =>{
     // get the data from the form
@@ -25,7 +26,7 @@ export default function Signin() {
     e.preventDefault();
     try {
       dispatch(signInStart());
-      const res = await fetch('https://mernrealstate2024api.vercel.app/api/auth/signin',
+      const res = await fetch({url}+'/api/auth/signin',
         {
           method:'post',
           headers:{

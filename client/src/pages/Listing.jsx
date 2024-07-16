@@ -28,12 +28,13 @@ export default function Listing() {
   const [contact, setContact] = useState(false);
   const params = useParams();
   const { currentUser } = useSelector((state) => state.user);
+  const url = 'https://mernrealstate2024api.vercel.app'
 
   useEffect(() => {
     const fetchListing = async () => {
       try {
         setLoading(true);
-        const res = await fetch(`https://mernrealstate2024api.vercel.app/api/listing/get/${params.listingId}`);
+        const res = await fetch(`${url}/api/listing/get/${params.listingId}`);
         const data = await res.json();
         if (data.success === false) {
           setError(true);

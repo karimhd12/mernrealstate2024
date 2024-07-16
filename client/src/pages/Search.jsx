@@ -17,6 +17,7 @@ export default function Search() {
   const [loading, setLoading] = useState(false);
   const [listings, setListings] = useState([]);
   const [showMore, setShowMore] = useState(false);
+  const url = 'https://mernrealstate2024api.vercel.app'
 
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
@@ -52,7 +53,7 @@ export default function Search() {
       setLoading(true);
       setShowMore(false);
       const searchQuery = urlParams.toString();
-      const res = await fetch(`https://mernrealstate2024api.vercel.app/api/listing/get?${searchQuery}`);
+      const res = await fetch(`${url}/api/listing/get?${searchQuery}`);
       const data = await res.json();
       if (data.length > 8) {
         setShowMore(true);

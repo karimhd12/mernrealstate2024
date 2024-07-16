@@ -34,11 +34,12 @@ export default function CreateListing() {
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const url = 'https://mernrealstate2024api.vercel.app'
 
   useEffect(() => {
     const fetchListing = async () => {
       const listingId = params.listingId;
-      const res = await fetch(`https://mernrealstate2024api.vercel.app/api/listing/get/${listingId}`);
+      const res = await fetch(`${url}/api/listing/get/${listingId}`);
       const data = await res.json();
       if (data.success === false) {
         console.log(data.message);
