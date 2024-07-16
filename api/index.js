@@ -21,7 +21,7 @@ const app = express()
 
 app.use(express.json())
 app.use(cors({
-    origin:["https://mernrealstate2024.vercel.app"],
+    origin:["https://mernrealstate2024api.vercel.app"],
     methods:["GET","POST","PUT","DELETE"],
     credentials:true
 }))
